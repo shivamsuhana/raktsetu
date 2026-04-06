@@ -138,13 +138,6 @@ chmod -R 755 uploads/
 # http://localhost/raktsetu/
 ```
 
-### Default credentials
-```
-Admin:  admin@raktsetu.org / Admin@123
-Donor:  arjun@demo.com     / Donor@123
-Staff:  staff@aiims.com    / Donor@123
-```
-
 ---
 
 ## 🗄 Database Schema
@@ -190,8 +183,8 @@ Staff:  staff@aiims.com    / Donor@123
 
 ## 👨‍💻 Developer
 
-**Student Name** · Roll No: ________  
-Course: Web Technologies (23CSE404) · Instructor: Mir Junaid Rasool
+**SHIV(Krishu)** ·  
+
 
 ---
 

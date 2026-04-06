@@ -28,3 +28,10 @@ vendor/
 composer.lock
 config/db.php
 .htaccess
+
+# ============================================================
+#  Demo Credentials (Keep Local - Do not push)
+# ============================================================
+# Admin:  admin@raktsetu.org / Admin@123
+# Donor:  arjun@demo.com     / Donor@123
+# Staff:  staff@aiims.com    / Donor@123
