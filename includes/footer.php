@@ -32,7 +32,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© <?= date('Y') ?> RaktSetu · Built for Web Technologies (23CSE404) · Mir Junaid Rasool</p>
+            <p>© <?= date('Y') ?> RaktSetu · Built for Web Technologies (23CSE404)</p>
         </div>
     </div>
 </footer>
