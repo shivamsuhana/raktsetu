@@ -25,6 +25,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title><?= $pageTitle ?? APP_NAME ?></title>
     <link rel="stylesheet" href="<?= APP_URL ?>/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
