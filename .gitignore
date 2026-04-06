@@ -1,0 +1,30 @@
+# ============================================================
+#  RaktSetu — .gitignore
+# ============================================================
+
+# Uploaded user files (keep directory structure via .gitkeep)
+uploads/id-proofs/*
+uploads/hospital-certs/*
+!uploads/id-proofs/.gitkeep
+!uploads/hospital-certs/.gitkeep
+
+# IDE / OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+error_log
+
+# Local config overrides (never commit real credentials)
+config/local.php
+
+# Composer (if added later)
+vendor/
+composer.lock
+config/db.php
+.htaccess
