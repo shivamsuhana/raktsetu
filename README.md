@@ -7,8 +7,7 @@ RaktSetu is a real-time blood emergency matching platform that connects blood do
 ---
 
 ## 🌐 Live Demo
-- **Frontend:** https://your-username.github.io/raktsetu
-- **Full App (PHP + MySQL):** https://raktsetu.infinityfreeapp.com
+- **Full App (PHP + MySQL):** http://raktsetu.page.gd/
 
 ---
 
@@ -42,12 +41,12 @@ RaktSetu is a real-time blood emergency matching platform that connects blood do
 
 | Layer | Technology | Usage |
 |---|---|---|
-| Structure | HTML5 | Semantic markup, 9 pages |
+| Structure | HTML5 | Semantic markup |
 | Styling | CSS3 | Responsive, Box Model, Positioning, Floats |
 | Interactivity | JavaScript / DHTML | DOM manipulation, AJAX polling, form validation, countdown timers |
 | Backend | PHP 8 | Sessions, cookies, file upload, form handling, mail(), built-in functions |
 | Database | MySQL | Full CRUD — 8 tables |
-| Version Control | Git + GitHub | Incremental commits |
+| Version Control | Git + GitHub | Version Control |
 | Hosting | InfinityFree | PHP + MySQL live deployment |
 
 ---
@@ -87,7 +86,7 @@ raktsetu/
 │   └── auth-guard.php     — Role-based access control, cookie auto-login
 │
 ├── css/
-│   └── style.css          — 600+ lines, responsive, mobile-first
+│   └── style.css          — Responsive, mobile-first
 │
 ├── js/
 │   ├── main.js            — DOM manipulation, AJAX, polling, countdown, search
@@ -101,28 +100,20 @@ raktsetu/
 ├── sql/
 │   └── raktsetu.sql       — Full schema + seed data (admin + 12 donors + requests)
 │
-├── .htaccess              — Apache security, error pages, caching, gzip
-├── .gitignore             — Excludes uploads, IDE files, logs
-└── README.md              — This file
+├── .htaccess              — Apache security, error pages, URL rules
+├── .gitignore             — Excludes sensitive data and system files
+└── README.md              — Documentation file
 ```
 
 ---
 
 ## ⚙️ Setup & Installation
 
-### Option A — One-click installer (recommended)
-
-1. Clone the repo and place in your web server root
-2. Open `http://localhost/raktsetu/setup.php` in your browser
-3. Fill in your MySQL credentials and click **Run Setup**
-4. The installer creates all tables, seeds demo data, and updates `config/db.php`
-5. **Delete `setup.php` from server after setup is complete**
-
-### Option B — Manual setup
+### Option A — Manual setup
 
 ```bash
 # 1. Clone
-git clone https://github.com/your-username/raktsetu.git
+git clone https://github.com/shivamsuhana/raktsetu.git
 
 # 2. Create database and import schema
 mysql -u root -p -e "CREATE DATABASE raktsetu"
