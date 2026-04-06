@@ -28,13 +28,17 @@ $sql = "
            (SELECT COUNT(*) FROM donations d WHERE d.donor_id=u.id AND d.verified_by_hospital=1) AS donations
     FROM users u
     WHERE " . implode(' AND ', $where) . "
-    ORDER BY u.is_eligible DESC, donations DESC
+    ORDER BY u.is_eligible DESC, (SELECT COUNT(*) FROM donations d WHERE d.donor_id=u.id AND d.verified_by_hospital=1) DESC
     LIMIT 20
 ";
 
 try {
     $stmt = getDB()->prepare($sql);
-    $stmt->execute($params);
+    if (empty($params)) {
+        $stmt->execute();
+    } else {
+        $stmt->execute($params);
+    }
     $rows = $stmt->fetchAll();
 
     $out = array_map(function($r) {

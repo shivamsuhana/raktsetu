@@ -11,7 +11,8 @@ $pageTitle = 'Find Donors · ' . APP_NAME;
 $db        = getDB();
 
 // ── Filters ─────────────────────────────────────────────────
-$filterBT   = in_array($_GET['bt']   ?? '', [...BLOOD_TYPES,'']) ? ($_GET['bt']   ?? '') : '';
+$btList     = array_merge(BLOOD_TYPES, ['']);
+$filterBT   = in_array($_GET['bt']   ?? '', $btList) ? ($_GET['bt']   ?? '') : '';
 $filterCity = trim(htmlspecialchars($_GET['city'] ?? '', ENT_QUOTES));
 $page       = max(1, (int)($_GET['page'] ?? 1));
 $perPage    = 12;
@@ -28,21 +29,30 @@ $whereSQL = implode(' AND ', $where);
 
 // Total count for pagination
 $countStmt = $db->prepare("SELECT COUNT(*) FROM users u WHERE $whereSQL");
-$countStmt->execute($params);
+if (empty($params)) {
+    $countStmt->execute();
+} else {
+    $countStmt->execute($params);
+}
 $totalDonors = (int)$countStmt->fetchColumn();
 $totalPages  = max(1, (int)ceil($totalDonors / $perPage));
 
 // Donors list — READ from DB
-$stmt = $db->prepare("
+$sql = "
     SELECT u.id, u.name, u.blood_type, u.city, u.state, u.is_eligible,
            u.last_donated, u.created_at,
            (SELECT COUNT(*) FROM donations d WHERE d.donor_id = u.id AND d.verified_by_hospital=1) AS donation_count
     FROM users u
     WHERE $whereSQL
-    ORDER BY u.is_eligible DESC, donation_count DESC, u.created_at DESC
-    LIMIT $perPage OFFSET $offset
-");
-$stmt->execute($params);
+    ORDER BY u.is_eligible DESC, (SELECT COUNT(*) FROM donations d WHERE d.donor_id = u.id AND d.verified_by_hospital=1) DESC, u.created_at DESC
+    LIMIT $offset, $perPage
+";
+$stmt = $db->prepare($sql);
+if (empty($params)) {
+    $stmt->execute();
+} else {
+    $stmt->execute($params);
+}
 $donors = $stmt->fetchAll();
 
 // Donor badge helper
