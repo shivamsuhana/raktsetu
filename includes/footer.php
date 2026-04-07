@@ -32,7 +32,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>© <?= date('Y') ?> RaktSetu · Built for Web Technologies  by SHIV</p>
+            <p>© <?= date('Y') ?> RaktSetu · Built for Web Technologies  by Shiva</p>
         </div>
     </div>
 </footer>
