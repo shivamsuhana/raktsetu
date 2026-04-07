@@ -134,7 +134,7 @@ require_once 'includes/header.php';
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;flex-wrap:wrap;gap:12px">
         <div>
             <h1 style="font-size:24px;font-weight:700;color:var(--dark)">
-                Welcome back, <?= htmlspecialchars((explode(' ', $user['name'] ?? ''))[0] ?? '') ?> 👋
+                Welcome back, <?= htmlspecialchars(($parts = explode(' ', $user['name'] ?? '')) && isset($parts[0]) && $parts[0]!=='' ? $parts[0] : 'User') ?> 👋
             </h1>
             <p class="text-muted" style="margin-top:4px">
                 <?= htmlspecialchars($user['email']) ?>
