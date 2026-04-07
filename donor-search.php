@@ -55,13 +55,7 @@ if (empty($params)) {
 }
 $donors = $stmt->fetchAll();
 
-// Donor badge helper
-function donorBadge(int $count): array {
-    if ($count >= 10) return ['Champion', '#7e22ce', '#f3e8ff'];
-    if ($count >= 5)  return ['Hero',     '#1d4ed8', '#dbeafe'];
-    if ($count >= 2)  return ['Regular',  '#15803d', '#dcfce7'];
-    return              ['New',      '#4b5563', '#f3f4f6'];
-}
+// donorBadge() is already defined in config/helpers.php (loaded via db.php)
 
 require_once 'includes/header.php';
 ?>
