@@ -84,7 +84,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 <div class="nav-user" id="userMenu">
                     <button class="user-trigger" onclick="toggleUserMenu()">
                         <span class="user-avatar"><?= strtoupper(substr($_SESSION['user_name'] ?? 'U', 0, 1)) ?></span>
-                        <span class="user-name"><?= htmlspecialchars(explode(' ', $_SESSION['user_name'] ?? '')[0]) ?></span>
+                        <?php $nParts = explode(' ', $_SESSION['user_name'] ?? ''); ?>
+                        <span class="user-name"><?= htmlspecialchars($nParts[0] ?? '') ?></span>
                         <span class="caret">▾</span>
                     </button>
                     <div class="user-dropdown" id="userDropdown">
