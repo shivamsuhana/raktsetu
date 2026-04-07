@@ -122,8 +122,8 @@ $db->prepare("UPDATE alerts SET is_read=1 WHERE user_id=? AND is_read=0")->execu
 
 // ── Stats ────────────────────────────────────────────────────
 $totalDonations   = count($donations);
-$verifiedDonations = count(array_filter($donations, fn($d) => $d['verified_by_hospital']));
-$activeResponses  = count(array_filter($responses, fn($r) => in_array($r['req_status'],['open','in_progress'])));
+$verifiedDonations = count(array_filter($donations, function($d) { return $d['verified_by_hospital']; }));
+$activeResponses  = count(array_filter($responses, function($r) { return in_array($r['req_status'],['open','in_progress']); }));
 
 require_once 'includes/header.php';
 ?>

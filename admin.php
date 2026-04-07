@@ -555,11 +555,11 @@ require_once 'includes/header.php';
 <?php if ($tab === 'analytics'): ?>
 <script>
 window.chartData = {
-    weeklyLabels: <?= json_encode(array_map(fn($w) => date('D', strtotime($w['day'])), $weekly)) ?>,
-    weeklyReqs:   <?= json_encode(array_map(fn($w) => (int)$w['total'], $weekly)) ?>,
-    weeklyFulfilled: <?= json_encode(array_map(fn($w) => (int)$w['fulfilled'], $weekly)) ?>,
+    weeklyLabels: <?= json_encode(array_map(function($w) { return date('D', strtotime($w['day'])); }, $weekly)) ?>,
+    weeklyReqs:   <?= json_encode(array_map(function($w) { return (int)$w['total']; }, $weekly)) ?>,
+    weeklyFulfilled: <?= json_encode(array_map(function($w) { return (int)$w['fulfilled']; }, $weekly)) ?>,
     btLabels: <?= json_encode(array_column($byType, 'blood_type')) ?>,
-    btCounts: <?= json_encode(array_map(fn($b) => (int)$b['cnt'], $byType)) ?>,
+    btCounts: <?= json_encode(array_map(function($b) { return (int)$b['cnt']; }, $byType)) ?>,
     fulfillmentData: [
         <?= (int)$db->query("SELECT COUNT(*) FROM blood_requests WHERE status='fulfilled'")->fetchColumn() ?>,
         <?= (int)$db->query("SELECT COUNT(*) FROM blood_requests WHERE status IN ('open','in_progress')")->fetchColumn() ?>,

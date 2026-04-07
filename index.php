@@ -85,7 +85,7 @@ require_once 'includes/header.php';
 
 <!-- ── HERO ────────────────────────────────────────────────── -->
 <section class="hero">
-    <div class="hero-pulse">LIVE · <?= count(array_filter($criticalReqs, fn($r)=>$r['urgency']==='critical')) ?> CRITICAL REQUESTS</div>
+    <div class="hero-pulse">LIVE · <?= count(array_filter($criticalReqs, function($r) { return $r['urgency']==='critical'; })) ?> CRITICAL REQUESTS</div>
     <h1>One donation can <em>save three lives.</em><br>Respond now.</h1>
     <p>India's emergency blood donor network — connecting verified donors with hospitals in real-time.</p>
     <div class="hero-btns">

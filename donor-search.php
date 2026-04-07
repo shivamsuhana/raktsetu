@@ -119,7 +119,7 @@ require_once 'includes/header.php';
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px" id="donorGrid">
             <?php foreach ($donors as $d):
                 [$badgeLabel,$badgeText,$badgeBg] = donorBadge((int)$d['donation_count']);
-                $initials = strtoupper(implode('', array_map(fn($w)=>$w!==''?$w[0]:'', explode(' ', $d['name'] ?? ''))));
+                $initials = strtoupper(implode('', array_map(function($w) { return $w!==''?$w[0]:''; }, explode(' ', $d['name'] ?? ''))));
                 $initials = substr($initials, 0, 2);
             ?>
             <div class="donor-card fade-in"
