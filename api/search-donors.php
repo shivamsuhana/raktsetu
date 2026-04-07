@@ -54,7 +54,7 @@ try {
             'is_eligible' => (bool)$r['is_eligible'],
             'donations'   => $count,
             'badge'       => $badgeLabels[$badgeIdx],
-            'initials'    => strtoupper(implode('', array_map(fn($w)=>$w[0]??'', explode(' ', $r['name'])))),
+            'initials'    => strtoupper(implode('', array_map(fn($w)=>$w[0]??'', explode(' ', $r['name']??'')))),
         ];
     }, $rows);
 

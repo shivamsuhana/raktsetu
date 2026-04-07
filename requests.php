@@ -12,7 +12,7 @@ $pageTitle = 'Live Requests · ' . APP_NAME;
 $db  = getDB();
 
 // Filters from GET
-$filterBT  = in_array($_GET['bt']  ?? '', [...BLOOD_TYPES, '']) ? ($_GET['bt']  ?? '') : '';
+$filterBT  = in_array($_GET['bt']  ?? '', array_merge(BLOOD_TYPES, [''])) ? ($_GET['bt']  ?? '') : '';
 $filterUrg = in_array($_GET['urg'] ?? '', ['critical','high','normal','']) ? ($_GET['urg'] ?? '') : '';
 
 // Build query with optional filters
