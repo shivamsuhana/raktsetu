@@ -27,7 +27,7 @@ config/local.php
 vendor/
 composer.lock
 config/db.php
-.htaccess
+# .htaccess (Removed from ignore to allow deployment)
 
 # ============================================================
 #  Demo Credentials (Keep Local - Do not push)
