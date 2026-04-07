@@ -22,11 +22,17 @@ error_log
 
 # Local config overrides (never commit real credentials)
 config/local.php
+config/db.php
+
+# Security-sensitive utility scripts (DO NOT COMMIT)
+fix-admin.php
+*.php.bak
+*.sql.bak
+temp-*.php
 
 # Composer (if added later)
 vendor/
 composer.lock
-config/db.php
 # .htaccess (Removed from ignore to allow deployment)
 
 # ============================================================
